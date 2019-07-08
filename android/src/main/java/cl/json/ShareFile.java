@@ -1,7 +1,6 @@
 package cl.json;
 
 import android.net.Uri;
-import android.os.Environment;
 import android.util.Base64;
 import android.webkit.MimeTypeMap;
 
@@ -105,7 +104,7 @@ public class ShareFile {
         if(this.isBase64File()) {
             String encodedImg = this.uri.getSchemeSpecificPart().substring(this.uri.getSchemeSpecificPart().indexOf(";base64,") + 8);
             try {
-                File dir = new File(Environment.getExternalStorageDirectory(), Environment.DIRECTORY_DOWNLOADS );
+                File dir = new File(reactContext.getFilesDir(), "downloaded_files" );
                 if (!dir.exists() && !dir.mkdirs()) {
                     throw new IOException("mkdirs failed on " + dir.getAbsolutePath());
                 }

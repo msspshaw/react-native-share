@@ -136,7 +136,7 @@ public class ShareFiles
                 String extension = mime.getExtensionFromMimeType(type);
                 String encodedImg = uri.getSchemeSpecificPart().substring(uri.getSchemeSpecificPart().indexOf(";base64,") + 8);
                 try {
-                    File dir = new File(Environment.getExternalStorageDirectory(), Environment.DIRECTORY_DOWNLOADS );
+                    File dir = new File(reactContext.getFilesDir(), "downloaded_files" );
                     if (!dir.exists() && !dir.mkdirs()) {
                         throw new IOException("mkdirs failed on " + dir.getAbsolutePath());
                     }
